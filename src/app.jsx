@@ -1,7 +1,17 @@
 import styles from './index.scss';
 import React from 'react';
+import axios from 'axios';
 
 export default class App extends React.Component {
+  componentWillMount() {
+  axios.get('http://api.openweathermap.org/data/2.5/weather?q=sao_paulo&units=metric&APPID=0ecce192500d1a71eb05d1ef815147cc')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   render() {
     return (
       <div>
